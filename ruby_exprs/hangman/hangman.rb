@@ -4,12 +4,6 @@ require 'json'
 require 'csv'
 include Display
 
-
-# 1. menu 
-# 2. saving progress so far
-# 3. printing status
-
-
 class Game
     def initialize
         @word_setter = WordSetter.new
@@ -119,4 +113,3 @@ end
 
 
 game = Game.new()
-game.load_old_game
