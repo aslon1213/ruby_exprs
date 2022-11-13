@@ -1,0 +1,19 @@
+#leetcode - #70
+def climbStairs( n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    output = 0
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    elif n == 3:
+        return 3
+    else:
+        for i in range(1,n):
+            output += climbStairs(n-i) + climbStairs(i)
+            output = output // 2
+    return output
+print(climbStairs(23))
