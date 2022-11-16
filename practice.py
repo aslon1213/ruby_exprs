@@ -1,19 +1,39 @@
-# leetcode --- 151. Reverse Words in a String
-def reverseWords( s):
-    """
-    :type s: str
-    :rtype: str
-    """
-    s = s.split()
-    output = ""
-    length = len(s)
-    for i in range(length):
-        output += s[-1 - i] + " "
-    
-    return output[:-1]
+import time
+
+class Solution(object):
 
 
+    def guess(self,m):
+        n = 6
+        if m < n:
+            return 1
+        elif m > n:
+            return -1
+        else:
+            return 0
 
 
+    def guessNumber(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        m = n // 2
+        print(m)
+        power = 1
+        output = self.guess(m)
+        while output != 0:
+            
+            if output == -1:
+                power += 1
+                m -= n >> power
+                output = self.guess(m)
+            elif output  == 1:
+                power += 1
+                m += n >> power
+                output = self.guess(m)
+        return m
 
-print(reverseWords("  hello world  "))
+a = Solution
+
+a.guessNumber(10,6)
